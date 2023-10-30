@@ -13,6 +13,13 @@ int funcQ(queue<int>& numberQ , int& SumQ){
         SumQ += numberQ.front();
         numberQ.pop();
     }
+    //or you could use while loop 
+    */
+        while(!numberQ.empty()){
+        SumQ += numberQ.front();
+        numberQ.pop();
+    }
+    */
     return SumQ ;
 }
 
