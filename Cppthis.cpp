@@ -25,4 +25,5 @@ int main()
     int first = 15 , second = 20 ;
     CppCalc ObjectCalc  ;
     int Cppresult = ObjectCalc.firstCalc(first).secondCalc(second).CppgetT(ObjectCalc);
+}
   
