@@ -35,7 +35,7 @@ int main()
 }
 
 
-cout<<"=====================================================================" ;
+cout<<"====================================================================="<<endl;
 
 //example 2 :
 
@@ -76,3 +76,47 @@ int main()
     calculator_1->printfunc(calculator_1);
     delete calculator_1 ;
 }
+
+cout<<"====================================================================="<<endl;
+
+//example 3 "using smart pointers " 
+
+// Example program
+#include <iostream>
+#include <memory>
+
+using namespace std ;
+
+class calculator{
+    private :
+        int first , second ;
+    public :
+        calculator(int first_  , int second_) : first(first_), second(second_){}
+        
+        calculator operator +(const calculator& Object){
+            calculator result(Object.first , Object.second) ;
+            return result ;
+        }
+        
+        int displayObject(calculator* Object){
+            return Object->first+Object->second ;
+        }
+        
+};
+
+int main()
+{
+    int first , second ;
+    
+    cout<<"Enter your first number : "<<" ";
+    cin>>first ;
+    cout<<"Enter your second number : "<<" ";
+    cin>>second ;
+    
+    unique_ptr<calculator> calculator_1 = make_unique<calculator>(first,second);
+    {
+        int result = calculator_1->displayObject(calculator_1.get());
+        cout<<"result is : "<<result ;
+    }
+}
+
