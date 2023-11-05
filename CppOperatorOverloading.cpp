@@ -120,3 +120,40 @@ int main()
     }
 }
 
+
+//example 3 : 
+
+cout<<"==================================================="<<endl;
+// Example program
+#include <iostream>
+#include <memory>
+
+using namespace std ;
+
+class CppCalc
+{
+    private :
+        int first ;
+        int second ;
+        int result ;
+    public :
+        CppCalc (int first_ , int second_ ,int result_):first(first_) , second(second_),result(result_){}
+        
+        CppCalc operator()(){
+            result = first + second ;
+            return *this ;
+        }
+        
+        void WhatResult(){
+            cout<<"the result is : "<<result ;
+        }
+};
+
+int main()
+{
+    int first = 15 , second = 20   ;
+    int result = 0 ;
+    CppCalc* ObjectCalc = new CppCalc(first,second,result)  ;
+    ObjectCalc->operator()() ;
+    ObjectCalc->WhatResult() ;
+}
