@@ -4,6 +4,7 @@
 
 using namespace std;
 
+//example 1 : 
 class Calculator
 {
 public:
@@ -39,3 +40,32 @@ int main()
     int SumQ = calculator->funcSum(Queue, SumQueue);
     cout << "Sum Queue is : " << SumQ;
 }
+
+
+//example 2 : 
+
+
+#include <iostream>
+#include <memory>
+
+using namespace std ;
+ 
+struct CalcVariable
+{
+    int first ;
+    int second ;
+};
+
+unique_ptr<int> functionSum(CalcVariable& Object){
+    return make_unique<int>(Object.first + Object.second) ;
+}
+
+int main(){
+    int first = 10 ;
+    int second = 20 ;
+    
+    CalcVariable Object{first,second}; 
+    unique_ptr<int> result = functionSum(Object) ;
+    cout<<"sum result is : "<<*result ;
+}
+    
